@@ -1,0 +1,13 @@
+#!/bin/bash
+if [ "$#" != 2 ]
+then
+   echo "Usage:easy_install path_of_icx_files"   
+fi
+OUTPUT=$(ansible --version | grep "ansible python module location")
+IFS='='; arrIN=($OUTPUT); unset IFS;
+PYTHON_MODULE_LOCATION=${arrIN[1]}
+echo Ansible Python module location: $PYTHON_MODULE_LOCATION
+cp $1/icx*.py $PYTHON_MODULE_LOCATION/modules/network/icx/
+#sudo tar -xzf ansible.tar.gz -C ./ansible
+echo "done!"
+
