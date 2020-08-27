@@ -15,3 +15,9 @@ Issue:        FI-215386
 Description:  "ip ssh pub-key-file tftp ip rsa_pub_keys.txt" command fails in icx_command playbook
 
 Solution:     Modified icx_command module to send "enter" after receivig success/failure for "ip ssh pub-key-file" command. 
+
+
+
+Issue/s:        FI-218629, FI-218628
+Description:  Incorrect interface configured and not able to purge using icx_vlan
+Solution:     Corrected icx_vlan module code.
