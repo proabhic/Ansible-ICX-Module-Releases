@@ -167,11 +167,11 @@ def parse_commands(module, warnings):
                 warnings.append(
                     'Only show commands are supported when using check mode, not executing configure terminal')
                 commands.remove(item)
-                
+          
         if(item['command'].startswith('ip ssh pub-key-file') == True):
             item1 = {
                 'command': item['command'],
-                'prompt':" .*",
+                'prompt':["Finished downloading","Error in","failed"],
                 'answer':'',
                 'newline': True
               }
