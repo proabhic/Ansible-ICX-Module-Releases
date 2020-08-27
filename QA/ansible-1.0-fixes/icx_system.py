@@ -49,7 +49,7 @@ options:
     type: list
   aaa_servers:
     description:
-      - Configures radius/tacacs server
+      - Configures radius/tacacs server. To configure a radius-sever host, all of the options are mandatory and no options are supported individually.
     type: list
     suboptions:
       type:
@@ -59,7 +59,7 @@ options:
         choices: ['radius','tacacs']
       hostname:
         description:
-          - Configures the host name of server.
+          - Configures the host name of the RADIUS server
         type: str
       auth_port_type:
         description:
@@ -72,7 +72,7 @@ options:
         type: str
       acct_port_num:
         description:
-          - Configures the accounting UDP port. The default value is 1813. This should be provided only if auth_port_num is provided.
+          - Configures the accounting UDP port. The default value is 1813.
         type: str
       acct_type:
         description:
@@ -81,7 +81,7 @@ options:
         choices: ['accounting-only', 'authentication-only','authorization-only', default]
       auth_key:
         description:
-          - Configure the key for the server. This should be provided only if acct_port_num is provided.
+          - Configure the key for the server
         type: str
       auth_key_type:
         description:
