@@ -1,0 +1,51 @@
+---
+- hosts: all
+  gather_facts: no
+  vars:
+    ansible_network_os: icx
+    ansible_user: lab
+    ansible_password: lab123
+
+  tasks:
+  - name: ping to host
+    icx_ping:
+      dest: 172.16.10.18
+    register: output
+
+  - name: show command
+    debug:
+      msg: '{{ output }}'
+
+  - name: ping to ip with size
+    icx_ping:
+      dest: 172.16.10.18
+      count: 5
+      ttl: 30
+      timeout: 10000
+      size: 150
+      state: present
+    register: output
+
+  - name: show command
+    debug:
+      msg: '{{ output }}'
+
+
+  - name: show command
+    debug:
+      msg: '{{ output }}'
+
+  - name: ping to unreachable host
+    icx_ping:
+      dest: 10.255.255.250
+      timeout: 1
+      count: 10
+      state: absent
+    register: output
+
+  - name: show command
+    debug:
+      msg: '{{ output }}'
+
+
+  

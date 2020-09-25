@@ -1,0 +1,7 @@
+[icx:vars]
+scp_remote_user=lab
+scp_remote_pass=lab123
+
+[icx]
+10.10.10.182
+10.10.10.183
