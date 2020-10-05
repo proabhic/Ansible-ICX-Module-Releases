@@ -1,21 +1,23 @@
 ---
-- hosts: 10.10.10.182
+- hosts: icx
   gather_facts: no
   vars:
     ansible_network_os: icx
-    ansible_user: lab
+    ansible_user: super
     ansible_become: True
-    ansible_password: lab123
+    ansible_password: test
     ansible_become_method: enable
-    ansible_become_pass: lab123
+    ansible_become_pass: test
+    ansible_persistent_log_messages: True
 
   tasks:
-  - name: create new user
-    icx_user:
-      name: ale6
-      configured_password: lab123
-      compare: false
+  # - name: create new user
+  #   icx_user:
+  #     name: ale6
+  #     configured_password: alethea123
+  #     check_running_config: false
   
+  #test1
   # - name: create new user without password
   #   icx_user:
   #     name: ale7
@@ -47,8 +49,8 @@
   #     update_password: on_create
   #   register: result
 
-  # - name: purge all the users except lab
+  # - name: purge all the users except alethea
   #   icx_user:
   #     aggregate:
-  #       - name: lab
+  #       - name: alethea
   #     purge: true

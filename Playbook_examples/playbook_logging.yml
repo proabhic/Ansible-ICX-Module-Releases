@@ -1,13 +1,14 @@
 ---
-- hosts: 10.10.10.183
+- hosts: icx
   gather_facts: no
   vars:
     ansible_network_os: icx
-    ansible_user: lab
+    ansible_user: super
     ansible_become: yes
-    ansible_password: lab123
+    ansible_password: test
     ansible_become_method: enable
-    ansible_become_pass: lab123
+    ansible_become_pass: test
+    ansible_persistent_log_messages: True
         
   tasks:
   # - name: set the ipv4 on remote devices with default port
@@ -15,17 +16,17 @@
   #       dest: host
   #       name: 172.16.10.23
   #       facility: local0
-        # state: present
+  #       state: present
 
 
-  - name: set the ipv6 on remote devices
-    icx_logging:
-        dest: host
-        name: 2001:db8::1
-        udp_port: 6000
-        facility: user
-        state: absent
-        compare: True
+  # - name: set the ipv6 on remote devices
+  #   icx_logging:
+  #       dest: host
+  #       name: 2001:db8::1
+  #       udp_port: 6000
+  #       facility: user
+  #       state: absent
+  #       # check_running_config: True
 
   # - name: set the present on remote devices with specifies port
   #   icx_logging:
@@ -47,14 +48,14 @@
   #       name: 172.16.10.23
   #       state: absent
 
-  # - name: set the add errors on remote devices
-  #   icx_logging:
-  #       dest: buffered
-  #       level: 
-  #         - warnings
-  #         - errors
-  #         - critical
-  #       state: absent
+  - name: set the add errors on remote devices
+    icx_logging:
+        dest: buffered
+        level: 
+          - warnings
+          - errors
+          - critical
+        state: absent
 
 
   # - name: set the remove errors on remote devices

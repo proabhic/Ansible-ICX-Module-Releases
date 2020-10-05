@@ -3,12 +3,13 @@
   #gather_facts: no
   vars:
     ansible_network_os: icx
-    ansible_user: lab
+    ansible_user: super
     ansible_become: True
-    ansible_password: lab123
+    ansible_password: test
     ansible_become_method: enable
-    ansible_become_pass: lab123
-    ansible_command_timeout: 60
+    ansible_become_pass: test
+    ansible_command_timeout: 300
+    # ansible_persistent_log_messages: True
 
   tasks:
     # - name: Collect the default facts

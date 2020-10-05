@@ -1,24 +1,26 @@
 ---
-- hosts: 10.10.10.182
+- hosts: icx
   gather_facts: no
   vars:
     ansible_network_os: icx
-    ansible_user: lab
+    ansible_user: super
     ansible_become: True
-    ansible_password: lab123
+    ansible_password: test
     ansible_become_method: enable
-    ansible_become_pass: lab123
+    ansible_become_pass: test
     ansible_command_timeout: 60
+    ansible_persistent_log_messages: True
 
   tasks:
+    #test1
   - name: create static link aggregation group
     icx_linkagg:
-      group: 10
+      group: 1
       mode: static
       members: 
         - ethernet 1/1/14 to 1/1/17
       name: LAG1
-      compare: True
+      # check_running_config: True
     register: result
 
   - debug:

@@ -1,42 +1,44 @@
 ---
-- hosts: all
+- hosts: all                                                                 
   gather_facts: no
   vars:
     ansible_network_os: icx
-    ansible_user: lab
+    ansible_user: alethea
     ansible_become: True
-    ansible_password: lab123
+    ansible_password: alethea123
     ansible_become_method: enable
-    ansible_become_pass: lab123
+    ansible_become_pass: alethea123
     ansible_command_timeout: 80
 
   tasks:
-  # - name: set the motd on remote devices
-  #   icx_banner:
-  #     banner: motd
-  #     text: |
-  #       welcome motd
-  #       multiline
-  #       string
-  #     check_running_config : False 
-  #   register: output
-   
-  # - name: show command
-  #   debug:
-  #    msg: '{{ output }}'
-
-  - name: set the incoming on remote devices
+  - name: set the motd on remote devices
     icx_banner:
       banner: motd
       text: |
         welcome motd
         multiline
-        string kjhjkh
-    register: output
+        string 
+      check_running_config : False 
+    register: output 
    
   - name: show command
     debug:
-     msg: '{{ output }}'    
+     msg: '{{ output }}'
+
+  # - name: set the incoming on remote devices
+  #   icx_banner:
+  #     banner: motd
+  #     text: |
+  #       welcome sayo
+  #     state: present
+      
+      
+      
+  #   register: output
+   
+  # - name: show command
+  #   debug:
+  #    msg: '{{ output }}'    
 
   # - name: set the exec on remote devices
   #   icx_banner:
@@ -50,7 +52,7 @@
   # - name: show command
   #   debug:
   #    msg: '{{ output }}'
-
+ 
   # - name: set the motd on remote devices
   #   icx_banner:
   #     banner: motd

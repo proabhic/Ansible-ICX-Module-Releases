@@ -1,13 +1,14 @@
 ---
-- hosts: 10.10.10.183
+- hosts: icx
   gather_facts: yes
   vars:
     ansible_network_os: icx
     ansible_become: True
-    ansible_user: lab
-    ansible_password: lab123
+    ansible_user: super
+    ansible_password: test
     ansible_become_method: enable
-    ansible_become_pass: lab123
+    ansible_become_pass: test
+    ansible_persistent_log_messages: True
     
         
   tasks:
@@ -19,7 +20,7 @@
   #     stp: True
   #     state: present
   #     enabled: True
-  #     compare: false
+      # check_running_config: false
 
   # - name: configure interface power parameters
   #   icx_interface:
@@ -27,7 +28,7 @@
   #     description: interface ethernet port 1
   #     power:
   #       by_class: 3
-  #     compare: True
+  #     check_running_config: True
 
   # - name: configure interface power parameters
   #   icx_interface:
@@ -43,11 +44,11 @@
   #     power:
   #        priority: 1
     
-  - name: configure interface disable power parameters
-    icx_interface:
-      name: ethernet 1/1/33
-      enabled: false
-      compare: True
+  # - name: configure interface disable power parameters
+  #   icx_interface:
+  #     name: ethernet 1/1/33
+  #     enabled: false
+  #     check_running_config: True
   
   # - name: disable the interface
   #   icx_interface:
@@ -71,13 +72,14 @@
   #     - { name: ethernet 1/1/4, description: test-interface 14, power: { by_class: 3 } }
   #     - { name: ethernet 1/1/5, description: test-interface 15, power: { by_class: 4 } }
   #     speed: 10-half
-     
-  # - name: check intent parameters
-  #   icx_interface:
-  #     name: ethernet 1/1/48
-  #     neighbors:
-  #       - port: GigabitEthernet1/1/48
-  #         host: ICX7150-48 Router
+  
+  #test2
+  - name: check intent parameters
+    icx_interface:
+      name: ethernet 1/1/13
+      neighbors:
+        - port: GigabitEthernet1/1/13
+          host: ICX7650-48ZP Router
   
   # - name: Check tx,rx intent arguments
   #   icx_interface:

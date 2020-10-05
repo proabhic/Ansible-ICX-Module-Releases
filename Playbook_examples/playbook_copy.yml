@@ -3,22 +3,22 @@
   #gather_facts: no
   vars:
     ansible_network_os: icx
-    ansible_user: lab
+    ansible_user: super
     ansible_become: True
-    ansible_password: lab123
+    ansible_password: test
     ansible_become_method: enable
-    ansible_become_pass: lab123
+    ansible_become_pass: test
     ansible_command_timeout: 60
 
   tasks:
-  # - name: upload primary flash to the remote scp server
-  #   icx_copy:
-  #     upload: flash_primary
-  #     protocol: scp
-  #     remote_server: 172.16.10.49
-  #     remote_filename: primary.bin
-  #     remote_user: lab
-  #     remote_pass: lab123
+  - name: upload primary flash to the remote scp server
+    icx_copy:
+      upload: flash_secondary
+      protocol: scp
+      remote_server: 10.45.2.185
+      remote_filename: SPR08095_b412ufi.bin
+      remote_user: alethea
+      remote_pass: alethea123
 
   # - name: download primary flash from the remote scp server
   #   icx_copy:
@@ -26,8 +26,8 @@
   #     protocol: scp
   #     remote_server: 172.16.10.49
   #     remote_filename: SPS08080b.bin
-  #     remote_user: lab
-  #     remote_pass: lab123
+  #     remote_user: alethea
+  #     remote_pass: alethea123
 
   # - name: upload running-config to the remote scp server
   #   icx_copy:
@@ -44,8 +44,8 @@
   #     protocol: scp
   #     remote_server: 172.16.10.49
   #     remote_filename: running.conf
-  #     remote_user: lab
-  #     remote_pass: lab123
+  #     remote_user: alethea
+  #     remote_pass: alethea123
 
 
   # - name: upload startup-config to the remote scp server
@@ -54,8 +54,8 @@
   #     protocol: scp
   #     remote_server: 172.16.10.49
   #     remote_filename: startup.conf
-  #     remote_user: lab
-  #     remote_pass: lab123
+  #     remote_user: alethea
+  #     remote_pass: alethea123
 
   # - name: download startup-config from the remote scp server
   #   icx_copy:
@@ -63,8 +63,8 @@
   #     protocol: scp
   #     remote_server: 172.16.10.49
   #     remote_filename: startup.conf
-  #     remote_user: lab
-  #     remote_pass: lab123
+  #     remote_user: alethea
+  #     remote_pass: alethea123
 
   # HTTPS
 
@@ -72,14 +72,14 @@
   #   icx_copy:
   #     download: startup-config
   #     protocol: https
-  #     remote_server: fileserver.lab.in
+  #     remote_server: fileserver.alethea.in
   #     remote_filename: startup.conf
 
   # - name: download primary flash from the remote https server
   #   icx_copy:
   #     download: flash_primary
   #     protocol: https
-  #     remote_server: fileserver.lab.in
+  #     remote_server: fileserver.alethea.in
   #     remote_filename: filestorage/test/SPS08080b.bin
 
 
@@ -87,7 +87,7 @@
   #   icx_copy:
   #     download: flash_primary
   #     protocol: https
-  #     remote_server: fileserver.lab.in
+  #     remote_server: fileserver.alethea.in
   #     remote_filename: filestorage/test/SPS08080b.bin
 
-#copy https flash fileserver.lab.in /filestorage/test/SPS08080b.bin primary
+#copy https flash fileserver.alethea.in /filestorage/test/SPS08080b.bin primary

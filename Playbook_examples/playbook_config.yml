@@ -1,23 +1,25 @@
 ---
-- hosts: 10.10.10.183
+- hosts: icx
   gather_facts: no
   vars:
     ansible_network_os: icx
-    ansible_user: lab
+    ansible_user: super
     ansible_become: yes
-    ansible_password: lab123
+    ansible_password: test
     ansible_become_method: enable
-    ansible_become_pass: lab123
+    ansible_become_pass: test
+    ansible_persistent_log_messages: True
         
   tasks:
-  # - name: set the config on remote devices
-  #   icx_config:
-  #     lines:
-  #       - port-name test string4
-  #       - speed-duplex 10-full
-  #       - enable
-  #     parents:
-  #       - interface ethernet 1/1/9
+    #test1
+  - name: set the config on remote devices
+    icx_config:
+      lines:
+        - port-name test string4
+        - speed-duplex 10-full
+        - enable
+      parents:
+        - interface ethernet 1/1/9
 
   # - name: setup
   #   icx_config:
@@ -46,7 +48,7 @@
   # - name: icx_config diff against retrieved config
   #   icx_config:
   #     diff_against: startup
-  #     intended_config: "{{ lookup('file', '/home/lab/Documents/config.j2') }}"
+  #     intended_config: "{{ lookup('file', '/home/alethea/Documents/config.j2') }}"
   #   diff: true
 
     # intended, startup
@@ -55,8 +57,8 @@
   #   icx_config:
 
   #     diff_against: intended
-  #     intended_config: "{{ lookup('file', '/home/lab/Documents/config.j2') }}"
-  #     # running_config: "{{ lookup('file', '/home/lab/Documents/baserunning.j2') }}"
+  #     intended_config: "{{ lookup('file', '/home/alethea/Documents/config.j2') }}"
+  #     # running_config: "{{ lookup('file', '/home/alethea/Documents/baserunning.j2') }}"
   #     # diff_ignore_lines: 
   #     #   - port-name lldp-port
   #     #   - port-name test-interface
@@ -95,10 +97,10 @@
   #     before: ['no snmp-server contact foo']
  
 
-  - name: set path to copy
-    icx_config:
-      src: "{{ lookup('file', '/home/lab/Documents/config.j2') }}"
-      backup: yes
+  # - name: set path to copy
+  #   icx_config:
+  #     src: "{{ lookup('file', '/home/alethea/Documents/config.j2') }}"
+  #     backup: yes
 
     register: result
 
