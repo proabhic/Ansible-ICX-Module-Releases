@@ -16,10 +16,10 @@ Above commands will detect where Ansible is installed, overwrite modified files 
 
 # Bug Jiras:Modules
 
-FI-223408, FI-218627: icx_ping.py
-FI-22089: icx_banner.py, icx_config.py, icx_facts.py, icx_l3_interface.py, icx_lldp.py, icx_ping.py, icx_system.py,  icx_vlan.py, icx_command.py, icx_copy.py,icx_interface.py, icx_linkagg.py, icx_logging.py, icx_static_route.py, icx_user.py
+FI-223408, FI-218627: icx_ping.py  
+FI-22089: icx_banner.py, icx_config.py, icx_facts.py, icx_l3_interface.py, icx_lldp.py, icx_ping.py, icx_system.py,  icx_vlan.py, icx_command.py, icx_copy.py,icx_interface.py, icx_linkagg.py, icx_logging.py, icx_static_route.py, icx_user.py  
 FI-223410, FI-218629, FI-218628: icx_vlan.py
-FI-215386: icx_command.py
-FI-216707, FI-220009: icx_facts.py
-FI-216695: icx_system.py
+FI-215386: icx_command.py  
+FI-216707, FI-220009: icx_facts.py  
+FI-216695: icx_system.py  
 
